@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
     public function __invoke(Request $request)
     {
         $sanity = new PhpSanity('1123ksdf','production','','2023-10-01');
-        return $sanity->all('movie');
+            return response()->json(['data' => $sanity->all('movie')]);
     }
 }
 ```

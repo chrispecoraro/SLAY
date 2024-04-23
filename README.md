@@ -1,8 +1,7 @@
-# SLAQ
-SLAQ - Sanity, Laravel, Astro, and Qwik
+# SLAY
+SLAY - Sanity, Laravel, Astro, and "Your Choice" of JavaScript.
 
-
-Our beloved content-wrangling [Sanity](https://sanity.io), our insta-API [Laravel](https://laravel.com), and the zero-JS [Astro](https://astro.build/), and the island-less integration of [Qwik](https://qwik.dev), auditioning for the part of JS framework, with Vanilla JS (SLAV stack?), as a close contender.
+Our beloved content-wrangling [Sanity](https://sanity.io), our insta-API [Laravel](https://laravel.com), and the zero-JS [Astro](https://astro.build/), and your choice of JS framework.
 
 A combination of Astro for static pages and Laravel's front-end Breeze (SLAB stack?) scaffolding for any "secure" pages requiring login could also be used.
 
@@ -36,5 +35,3 @@ It also is a great proxy for POST operations to Sanity, needed for CORS.
 TODO: Write proper driver for Sanity using Laravel's Eloquent ORM, but that's a discussion for another day.
 
 _Why Astro?_ Ships with zero JavaScript for static pages.
-
-_Why Qwik or something else?_ Eventually SOME JS will be needed.

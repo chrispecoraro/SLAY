@@ -35,3 +35,5 @@ It also is a great proxy for POST operations to Sanity, needed for CORS.
 TODO: Write proper driver for Sanity using Laravel's Eloquent ORM, but that's a discussion for another day.
 
 _Why Astro?_ Ships with zero JavaScript for static pages.
+
+Thanks to https://github.com/vincentjflorio for the idea of using "Y" in the acronym. He suggested "Your framework" to keep things open.

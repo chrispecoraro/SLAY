@@ -28,6 +28,7 @@ use Illuminate\Http\Request;
             return response()->json(['data' => $sanity->all('movie')]);
     }
 }
+```
 
 Joins are passed in as an array of parameters: 
 ```$sanity->all('movie', ['poster.asset->url', 'slug.current', 'title', 'overview'])``` 

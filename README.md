@@ -1,15 +1,14 @@
 # SLAY
-SLAY - Sanity, Laravel, Astro, and "Your Choice" of JavaScript.
+ 
+The <span style="color:green">SLAY</span> stack consists of our beloved content-wrangling [Sanity](https://sanity.io), the insta-API [Laravel](https://laravel.com) PHP framework, and the zero-JS [Astro](https://astro.build/) website generator.
 
-Our beloved content-wrangling [Sanity](https://sanity.io), our insta-API [Laravel](https://laravel.com), and the zero-JS [Astro](https://astro.build/), and your choice of JS framework.
-
-A combination of Astro for static pages and Laravel's front-end Breeze (SLAB stack?) scaffolding for any "secure" pages requiring login could also be used.
+The Y represents "Your Choice" of JavaScript.
 
 It's easy, for example, a call to:
 
-```$sanity->all('movie'); ```
+```https://domain.com/movies``` return a list of movies through just one line of code:
 
-https://domain.com/movies could return all of the movies:
+```$sanity->all('movie'); ```
 
 ```<?php
 namespace App\Http\Controllers;
@@ -29,11 +28,14 @@ use Illuminate\Http\Request;
 }
 ```
 
-_Why Laravel?_ It provides a thin layer that can be used to manipulate Sanity data and perform calculations before returning it to the RESTful API, suitable for frontend developers. 
-It also is a great proxy for POST operations to Sanity, needed for CORS.
+_Why Laravel?_ 
+* Laravel provides a thin layer that can be used to manipulate Sanity content.
+* We can leverage Laravel's `collection` methods to perform calculations before returning the result to the RESTful API-- perfect to hide away complexity from frontend developers.
+* Laravel also provides an easy way to handle POST operations to Sanity, needed for creating, updating, and deleting Sanity documents.
+* When a proxy is needed for CORS, Laravel can handle this, too.
 
-TODO: Write proper driver for Sanity using Laravel's Eloquent ORM, but that's a discussion for another day.
+_Why Astro?_ 
+* Astro ships with zero JavaScript for static pages but can also host JavaScript "islands", perfect for creating fast that also need some functionality.
+* Astro provides a faster and lighter build process than older frameworks such as Gatsby and doesn't need DOM hydration, such as NextJS.
 
-_Why Astro?_ Ships with zero JavaScript for static pages.
-
-Thanks to https://github.com/vincentjflorio for the idea of using "Y" in the acronym. He suggested "Your framework" to keep things open.
+Special thanks are due to @vincentjflorio for the idea of using "Y" in the acronym. He suggested "Your framework" to keep things open.

@@ -11,7 +11,10 @@ It's easy, for example, a call to:
 returns a list of movies using just one line of code:
 
 ```php
-$sanity->all('movie'); ```
+$sanity->all('movie'); 
+```
+
+Here is the complete Laravel controller:
 
 ```php
 <?php
@@ -32,8 +35,11 @@ use Illuminate\Http\Request;
 }
 ```
 
-Joins are passed in as an array of parameters: 
-```$sanity->all('movie', ['poster.asset->url', 'slug.current', 'title', 'overview'])``` 
+Sanity "Joins" (projections) are passed into the `all` function as a second parameter as an array of parameters:
+
+```php
+$sanity->all('movie', ['poster.asset->url', 'slug.current', 'title', 'overview'])
+``` 
 
 The result is camel-cased:
 

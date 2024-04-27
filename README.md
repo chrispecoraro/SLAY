@@ -10,9 +10,11 @@ It's easy, for example, a call to:
 
 returns a list of movies using just one line of code:
 
-```$sanity->all('movie'); ```
+```php
+$sanity->all('movie'); ```
 
-```<?php
+```php
+<?php
 namespace App\Http\Controllers;
 
 use Chrispecoraro\PhpSanity\PhpSanity;
@@ -35,7 +37,7 @@ Joins are passed in as an array of parameters:
 
 The result is camel-cased:
 
-```
+```json
 {
 "data": [
    {
@@ -77,4 +79,4 @@ _Why Astro?_
 * Astro ships with zero JavaScript for static pages but can also host JavaScript "islands", perfect for creating fast that also need some functionality.
 * Astro provides a faster and lighter build process than older frameworks such as Gatsby and doesn't need DOM hydration, such as NextJS.
 
-Special thanks are due to @vincentjflorio for the idea of using "Y" in the acronym. He suggested "Your framework" to keep things open.
+Special thanks are due to [[@vincentjflorio]](https://github.com/vincentjflorio) for the idea of using "Y" in the acronym. He suggested "Your framework" to keep things open.

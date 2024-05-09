@@ -21,7 +21,8 @@ class GetMovies extends Controller
         );
 
         $movieCollection = collect($movies);
-//        $movieCollectionUpperCase = $movieCollection->map(function (array $movie) {
+
+        //        $movieCollectionUpperCase = $movieCollection->map(function (array $movie) {
 //            return ['title' => strtoupper($movie['title']),];
 //        });
 //        var_dump($movieCollectionUpperCase);

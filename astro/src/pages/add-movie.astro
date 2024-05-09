@@ -14,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
         event.preventDefault();
         form.addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission
-            const formData = new FormData(form); // Create a FormData object from the form
+            const formData = new FormData(form as HTMLFormElement); // Create a FormData object from the form
             // You can append additional data if necessary
             // formData.append('extraField', 'extraValue');
 
@@ -26,6 +26,7 @@ import Layout from '../layouts/Layout.astro';
                 .then(response => response.json()) // Convert response to JSON
                 .then(data => {
                     console.log('Success:', data);
+                    document.getElementById('success-message').innerHTML = 'Movie added!';
                 })
                 .catch((error) => {
                     console.error('Error:', error);
@@ -54,10 +55,10 @@ import Layout from '../layouts/Layout.astro';
                                                                      name="overview" required></textarea>
             </div>
             <div>
-                <span class="form-input-label"></span><input type="submit"/>
+                <span class="form-input-label"></span><input type="submit" class="form-button"/>
             </div>
         </form>
-        <p id="log"></p>
+        <p id="success-message"></p>
     </main>
 </Layout>
 <style>
@@ -130,19 +131,27 @@ import Layout from '../layouts/Layout.astro';
         display: inline-block;
     }
 
-    .form-input-label, .form-input-button {
+    .form-input-label, .form-button {
         display: inline-block;
-        width: 10em;
-        height: 3em;
+        width: 15em;
+        height: 2.5em;
+        font-weight: 400;
+        font-size: medium;
     }
-
     .form-input-field {
         display: inline-block;
         width: 35em;
         height: 2em;
+        margin-bottom: 3em;
     }
 
-    .form-input-textarea {
+    .form-input-field, .form-button, .form-input-textarea {
+        background-color: #ddd;
+        border-radius: 6px;
+    }
+
+    .form-input-textarea
+    {
         width: 35em;
         height: 4em;
     }

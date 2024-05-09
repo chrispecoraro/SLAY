@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 const response = await fetch('http://localhost:8000/movies');
 const movies = await response.json();
-console.log(movies)
+
 ---
 
 <Layout title="SLAY Stack movie demo.">

@@ -1,17 +1,21 @@
 ---
 import {PortableText} from "astro-portabletext";
+import type {
+	PortableTextBlock,
+} from '@portabletext/types'
 
 interface Props {
 	title: string;
-	body: string;
+	body: PortableTextBlock;
 	href: string;
+	posterUrl: string;
 }
 
 const { href, title, body, posterUrl} = Astro.props;
 ---
 
 <li class="link-card">
-	<a href={href}>
+	<a href={`movie/${href}`}>
 		<h2>
 			{title}
 		</h2>

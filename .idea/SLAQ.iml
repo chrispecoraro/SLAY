@@ -137,5 +137,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="rollins-edu-website" />
+    <orderEntry type="module" module-name="rollins-edu" />
   </component>
 </module>

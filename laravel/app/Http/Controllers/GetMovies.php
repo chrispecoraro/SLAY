@@ -13,7 +13,19 @@ class GetMovies extends Controller
     public function __invoke(Request $request)
     {
         $sanity = new PhpSanity('bl5z37mx', 'production', '', '2023-10-01');
-        return response()->json(['data' => $sanity->all('movie', ['poster.asset->url', 'slug.current', 'title', 'overview'])]);
+
+        $movies = $sanity->all(
+            'movie',
+            ['poster.asset->url', 'slug.current', 'title', 'overview'],
+            $query,
+        );
+
+        $movieCollection = collect($movies);
+//        $movieCollectionUpperCase = $movieCollection->map(function (array $movie) {
+//            return ['title' => strtoupper($movie['title']),];
+//        });
+//        var_dump($movieCollectionUpperCase);
+        return response()->json(['data' => $movieCollection]);
 
     }
 }

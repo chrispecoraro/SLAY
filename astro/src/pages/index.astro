@@ -6,11 +6,9 @@ const movies = await response.json();
 console.log(movies)
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="SLAY Stack movie demo.">
 	<main>
-
-		<h1 class="text-gradient">SLAQ stack Movie Demo</h1>
-
+		<h1 class="text-gradient">Movie List</h1>
 		<ul role="list" class="link-card-grid">
 			{(movies.data).map(
 				function(movie){

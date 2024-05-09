@@ -3,6 +3,7 @@
   <component name="PHPUnit">
     <option name="directories">
       <list>
+        <option value="$PROJECT_DIR$/../../rollins/edu/tests/tests" />
         <option value="$PROJECT_DIR$/laravel/tests" />
       </list>
     </option>

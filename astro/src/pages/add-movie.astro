@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Assuming you have a form in your HTML with an id of 'myForm'
+---
+<script>
+
+    const form = document.getElementById("add-movie");
+    const log = document.getElementById("log");
+
+    form.addEventListener("submit", formSubmit);
+
+    function formSubmit(event) {
+        const form = document.getElementById('add-movie');
+        event.preventDefault();
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+            const formData = new FormData(form); // Create a FormData object from the form
+            // You can append additional data if necessary
+            // formData.append('extraField', 'extraValue');
+
+            fetch('http://127.0.0.1:8000/addMovie', { // URL to which you are sending the request
+                method: 'POST',
+                body: formData, // Set the body to the FormData object
+                // Don't set 'Content-Type' header, the browser will set it with the boundary
+            })
+                .then(response => response.json()) // Convert response to JSON
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+        });
+    }
+
+
+
+</script>
+<Layout title="SLAY Stack movie demo.">
+    <main>
+        <h1 class="text-gradient">Add Movie</h1>
+        <form id="add-movie" enctype="multipart/form-data">
+            <div>
+                <span class="form-input-label">Movie Title</span> <input class="form-input-field"
+                                                                         aria-label="movie title" type="text"
+                                                                         name="title" required></div>
+            <div>
+                <span class="form-input-label">Movie Poster</span> <input class="form-input-field" type="file"
+                                                                          name="poster" required></div>
+            <div>
+                <span class="form-input-label">Overview</span> <textarea aria-label="movie description" cols="80" rows="10"
+                                                                     class="form-input-textarea"
+                                                                     name="overview" required></textarea>
+            </div>
+            <div>
+                <span class="form-input-label"></span><input type="submit"/>
+            </div>
+        </form>
+        <p id="log"></p>
+    </main>
+</Layout>
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    .astro-a {
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translatex(-50%);
+        width: 220px;
+        height: auto;
+        z-index: -1;
+    }
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+
+    .instructions {
+        margin-bottom: 2rem;
+        border: 1px solid rgba(var(--accent-light), 25%);
+        background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .instructions code {
+        font-size: 0.8em;
+        font-weight: bold;
+        background: rgba(var(--accent-light), 12%);
+        color: rgb(var(--accent-light));
+        border-radius: 4px;
+        padding: 0.3em 0.4em;
+    }
+
+    .instructions strong {
+        color: rgb(var(--accent-light));
+    }
+
+    form {
+        padding: 1em;
+        background-color: #23262d;
+        background-image: none;
+        background-size: 400%;
+        border-radius: 7px;
+        background-position: 100%;
+        transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        display: inline-block;
+    }
+
+    .form-input-label, .form-input-button {
+        display: inline-block;
+        width: 10em;
+        height: 3em;
+    }
+
+    .form-input-field {
+        display: inline-block;
+        width: 35em;
+        height: 2em;
+    }
+
+    .form-input-textarea {
+        width: 35em;
+        height: 4em;
+    }
+</style>

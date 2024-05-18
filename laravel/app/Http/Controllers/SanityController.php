@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Chrispecoraro\PhpSanity\PhpSanity;
+use Chrispecoraro\PhpSanity\Sanity;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class SanityController extends Controller
 
     public function __construct()
     {
-        $this->sanity = new PhpSanity(config('sanity.project_id'), config('sanity.dataset'), '', '2023-10-01');
+        $this->sanity = new Sanity(config('sanity.project_id'), config('sanity.dataset'), '', '2023-10-01');
     }
 
 

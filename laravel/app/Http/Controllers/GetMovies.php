@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Chrispecoraro\PhpSanity\PhpSanity;
+use Chrispecoraro\PhpSanity\Sanity;
 use Illuminate\Http\Request;
 
 class GetMovies extends Controller
@@ -12,7 +12,7 @@ class GetMovies extends Controller
      */
     public function __invoke(Request $request)
     {
-        $sanity = new PhpSanity('bl5z37mx', 'production', '', '2023-10-01');
+        $sanity = new Sanity('bl5z37mx', 'production', '', '2023-10-01');
 
         $movies = $sanity->all(
             'movie',

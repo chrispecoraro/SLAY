@@ -20,7 +20,7 @@ Here is the complete Laravel controller:
 <?php
 namespace App\Http\Controllers;
 
-use Chrispecoraro\PhpSanity\PhpSanity;
+use Chrispecoraro\PhpSanity\Sanity;
 use Illuminate\Http\Request;
 
 {
@@ -29,7 +29,7 @@ use Illuminate\Http\Request;
      */
     public function __invoke(Request $request)
     {
-        $sanity = new PhpSanity('1123ksdf','production','','2023-10-01');
+        $sanity = new Sanity('1123ksdf','production','','2023-10-01');
             return response()->json(['data' => $sanity->all('movie')]);
     }
 }

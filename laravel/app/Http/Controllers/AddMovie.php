@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Chrispecoraro\PhpSanity\PhpSanity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
-class AddMovie extends Controller
+class AddMovie extends SanityController
 {
 
 
@@ -36,14 +36,25 @@ class AddMovie extends Controller
     public function __invoke(Request $request)
     {
 
-        $sanity = new PhpSanity('bl5z37mx', 'production', 'sk2eqzK6pMrjXbu4eUgpm3LMjwMZN8QeIK1M13FTmrvaGs1M1r2Of5NUvqZvqoOnHX3DX5uV2TRnqAuVbpe46jKAeo9QB1CXtjolasUFopVgIrZYcf75RyQuaSOxjCY5FZcnM73mmMzdiWG5zVzZPNuUrDhV2s9pjEDnuzhiD5OFBu51wIqB', '2023-10-01');
+
         $poster = $request->file('poster');
-        $documentId = $sanity->create('movie', [$request->title, $this->createPortableTextBlock($request->overview)], ['title', 'overview']);
-        $sanity->attachImage(fieldName: 'poster', documentId: $documentId, imageUrl: $poster->getRealPath());
+
+        //create a new document
+        $documentId = $this->sanity->create('movie', [$request->title, $this->createPortableTextBlock($request->overview)], ['title', 'overview']);
+
+        //attach the poster to the document
+        $this->sanity->attachImage(fieldName: 'poster', documentId: $documentId, imageUrl: $poster->getRealPath());
+
+//         // send an email
+//         Mail::html('New movie added:' . $request->title, function ($message) use ($request) {
+//             $message->to("email@example.com")
+//                 ->subject('New movie added:' . $request->title)
+//                 ->from("email@example.com");
+//         });
+
+
         return response()->json(['data' => ['movie_id' => $documentId]]);
 
-
-        //
     }
 }
 

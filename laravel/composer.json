@@ -8,7 +8,9 @@
         "php": "^8.2",
         "chrispecoraro/php-sanity": "dev-main",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "laravel/vapor-core": "^2.37",
+        "leshkens/laravel-read-time": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

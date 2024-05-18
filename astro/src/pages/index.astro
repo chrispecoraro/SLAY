@@ -12,7 +12,6 @@ const movies = await response.json();
 		<ul role="list" class="link-card-grid">
 			{(movies.data).map(
 				function(movie){
-					console.log(movie.posterURL)
 					return 	(
 					<Card
 						href={movie.slugCurrent}

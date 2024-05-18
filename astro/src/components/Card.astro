@@ -9,9 +9,10 @@ interface Props {
 	body: PortableTextBlock;
 	href: string;
 	posterUrl: string;
+	readTime: Object;
 }
 
-const { href, title, body, posterUrl} = Astro.props;
+const { readTime, href, title, body, posterUrl} = Astro.props;
 ---
 
 <li class="link-card">
@@ -23,6 +24,7 @@ const { href, title, body, posterUrl} = Astro.props;
 			<img alt="" src={`${posterUrl}?w=300`} />
 		</p>
 		<p>
+			<!--Read time:-->
 			<PortableText value={body}/>
 		</p>
 	</a>

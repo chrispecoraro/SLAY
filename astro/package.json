@@ -13,8 +13,8 @@
     "@astrojs/check": "^0.5.10",
     "@portabletext/types": "^2.0.13",
     "@sanity/image-url": "^1.0.2",
-    "astro": "^4.5.18",
-    "astro-portabletext": "^0.9.8",
+    "astro": "^4.8.5",
+    "astro-portabletext": "^0.9.9",
     "typescript": "^5.4.5"
   }
 }

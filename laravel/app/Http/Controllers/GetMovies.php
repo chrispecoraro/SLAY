@@ -14,19 +14,9 @@ class GetMovies extends Controller
     {
         $sanity = new Sanity('bl5z37mx', 'production', '', '2023-10-01');
 
-        $movies = $sanity->all(
-            'movie',
-            ['poster.asset->url', 'slug.current', 'title', 'overview'],
-            $query,
-        );
+        $movies = $sanity->all('movie');
 
-        $movieCollection = collect($movies);
-
-        //        $movieCollectionUpperCase = $movieCollection->map(function (array $movie) {
-//            return ['title' => strtoupper($movie['title']),];
-//        });
-//        var_dump($movieCollectionUpperCase);
-        return response()->json(['data' => $movieCollection]);
+        return response()->json(['data' => $movies]);
 
     }
 }
